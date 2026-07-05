@@ -112,6 +112,14 @@
         justify-content: center;
       }
 
+      /* When there are exactly 4 cards, restrict width to force 2 rows of 2 */
+      @media (min-width: 768px) {
+        .card-grid:has(> .card:nth-last-child(4):first-child) {
+          max-width: 750px;
+          margin: 0 auto;
+        }
+      }
+
       /* Card Design */
       .card {
         background: var(--card-bg);
