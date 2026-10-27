@@ -400,8 +400,8 @@
           font-size: 2rem;
         }
 
-        .card-grid {
-          grid-template-columns: 1fr;
+        .card {
+          flex: 1 1 100%;
         }
 
         .category-title {
@@ -436,7 +436,7 @@
             <img
               src="optimized_images/downy.webp"
               alt="Downy Woodpecker"
-              loading="lazy"
+              fetchpriority="high"
             />
             <div class="card-content">
               <h3 class="bird-name">Downy Woodpecker</h3>
@@ -454,7 +454,6 @@
             <img
               src="optimized_images/hairy-woodpecker.webp"
               alt="Hairy Woodpecker"
-              loading="lazy"
             />
             <div class="card-content">
               <h3 class="bird-name">Hairy Woodpecker</h3>
@@ -1150,7 +1149,7 @@
       aria-label="Image View"
     >
       <button class="modal-close" aria-label="Close modal">&times;</button>
-      <img class="modal-content" id="modalImage" src="" alt="Original image" />
+      <img class="modal-content" id="modalImage" alt="Expanded bird view" />
     </div>
 
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
@@ -1230,6 +1229,7 @@
         const img = allImages[index];
         // Use the optimized image directly for better performance
         modalImage.src = img.src;
+        modalImage.alt = img.alt;
       }
 
       function navigateImage(direction) {
